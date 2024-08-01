@@ -1,9 +1,12 @@
 import streamlit as st
 from AIAgent_book import AIAgent_book
 
-# Initialize the AIAgent_book instance only once
-if 'aigent_book' not in st.session_state:
-    st.session_state.aigent_book = AIAgent_book()
+@st.cache(allow_output_mutation=True)
+def load_agent():
+    return AIAgent_book()
+
+# Initialize the AI agent
+agent_book = load_agent()
 
 def main():
     st.title("AI Agent for Book Queries")
@@ -14,7 +17,7 @@ def main():
     if st.button("Get Answer"):
         if query:
             # Get answer and relevant documents
-            answer, relevant_docs = answer_with_rag(query)
+            answer, relevant_docs = agent_book.answer_with_rag(query)
             
             # Display the answer
             st.write("### Answer:")
