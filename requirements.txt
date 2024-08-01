@@ -1,0 +1,12 @@
+accelerate
+bitsandbytes
+langchain
+langchain-community
+sentence-transformers
+ragatouille
+faiss-gpu
+rank_bm25
+beautifulsoup4
+keras-nlp
+keras>3
+streamlit
