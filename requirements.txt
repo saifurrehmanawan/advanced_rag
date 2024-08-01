@@ -10,3 +10,4 @@ beautifulsoup4
 keras-nlp
 keras>3
 streamlit
+google-generativeai
