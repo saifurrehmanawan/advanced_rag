@@ -89,7 +89,7 @@ class AIAgent_book:
         retrievers=[bm25_retriever, faiss_retriever], weights=[0.5, 0.5] # You can adjust the weight of each retriever in the EnsembleRetriever
     )
 
-    reranker = RAGPretrainedModel.from_pretrained("colbert-ir/colbertv2.0")
+    self.reranker = RAGPretrainedModel.from_pretrained("colbert-ir/colbertv2.0")
 
     prompt_template = """  
     You are an AI agent specialized in answering questions about podcasts. Your task is to provide answers with explanations using the given context from the podcast transcript. Always reference the specific part of the transcript by including the YouTube podcast title along with the reference provided just after the transcript where the information was found.
@@ -119,11 +119,9 @@ class AIAgent_book:
         relevant_docs = self.vector_database.invoke(question, config=config)
         relevant_docs = [doc.page_content for doc in relevant_docs]  # keep only the text
     
-        # Optionally rerank results
-        if reranker:
-            print("=> Reranking documents...")
-            relevant_docs = self.reranker.rerank(question, relevant_docs, k=num_docs_final)
-            relevant_docs = [doc["content"] for doc in relevant_docs]
+        print("=> Reranking documents...")
+        relevant_docs = self.reranker.rerank(question, relevant_docs, k=num_docs_final)
+        relevant_docs = [doc["content"] for doc in relevant_docs]
         
         relevant_docs = relevant_docs[:num_docs_final] # Keeping only num_docs_final documents
 
