@@ -50,7 +50,7 @@ class AIAgent_book:
     documents1 = loader1.load()
 
     text_splitter1 = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
-    docs1 = text_splitter1.split_documents(documents1)
+    chunked_docs = text_splitter1.split_documents(documents1)
 
     # Create a vectorstore database using FAISS
     embedding_model = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")  
