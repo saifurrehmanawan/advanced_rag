@@ -4,7 +4,7 @@ langchain
 langchain-community
 sentence-transformers
 ragatouille
-faiss-gpu
+faiss-cpu
 rank_bm25
 beautifulsoup4
 keras-nlp
