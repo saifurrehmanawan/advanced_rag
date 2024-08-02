@@ -92,8 +92,7 @@ class AIAgent_book:
     self.reranker = RAGPretrainedModel.from_pretrained("colbert-ir/colbertv2.0")
 
     prompt_template = """  
-    You are an AI agent specialized in answering questions about podcasts. Your task is to provide answers with explanations using the given context from the podcast transcript. Always reference the specific part of the transcript by including the YouTube podcast title along with the reference provided just after the transcript where the information was found.
-
+    You are an AI agent specializing in providing answers based on the context given from the books. If the exact answer is not available in the context, you should analyze the information and provide an approximate answer.
     Question: {query}
     Context: {context}
 
