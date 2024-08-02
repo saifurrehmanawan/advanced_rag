@@ -128,9 +128,9 @@ class AIAgent_book:
         # Build the final prompt
         context = relevant_docs[0] # We select only the top relevant document
     
-        final_prompt = self.RAG_PROMPT_TEMPLATE.format(
-            context = context,  
-            question=question
+        final_prompt = self.RAG_PROMPT_TEMPLATE.format( 
+            query = question,
+            context = context
         )
 
         # Redact an answer
