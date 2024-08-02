@@ -135,6 +135,6 @@ class AIAgent_book:
 
         # Redact an answer
         print("=> Generating answer...")
-        answer = self.model.generate(final_prompt, max_length=1024)
+        answer = self.model.generate_content(final_prompt, max_length=1024)
 
         return answer, relevant_docs
