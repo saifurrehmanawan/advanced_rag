@@ -101,7 +101,7 @@ class AIAgent_book:
     """
 
     self.RAG_PROMPT_TEMPLATE = PromptTemplate(
-        input_variables=["context", "query"],
+        input_variables=["query", "context"],
         template=prompt_template,
     )
 
