@@ -21,7 +21,7 @@ def main():
             
             # Display the answer
             st.write("### Answer:")
-            st.write(answer)
+            st.write(answer.text)
             
             # Display the relevant context
             st.write("### Relevant Context:")
